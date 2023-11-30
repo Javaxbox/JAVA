@@ -2,33 +2,27 @@
 
 public class PrimeNumbersInArray 
 {
-    public static void main(String[] args) 
-    {
-        int n = Integer.parseInt(args[0]);
-        int[] array = new int[n];
-
-        for (int i = 1; i <= n; i++) 
-            array[i - 1] = Integer.parseInt(args[i]);
-
-        System.out.println("Prime numbers in the array:");
-
-        for (int num : array)    
-            if (isPrime(num)) 
-                System.out.print(num + " ");
-    }
-
-    public static boolean isPrime(int num) 
-    {
-        if (num <= 1) 
-            return false;
-        if (num <= 3) 
-            return true;
-        if (num % 2 == 0 || num % 3 == 0) 
-            return false;
-
-        for (int i = 5; i * i <= num; i += 6) 
-            if (num % i == 0 || num % (i + 2) == 0) 
-                return false;
-        return true;
-    }
+        public static void main(String[] args) 
+        { 
+            int n=args.length; int i;
+            int a[]=new int[n]; 
+            System.out.print("Prime numbers are :"); 
+            for(i=0;i<n;i++) 
+            { 
+                 a[i]=Integer.parseInt(args[i]); 
+                int temp=2; 
+                int flag=0; 
+                while(temp<a[i])
+                { 
+                    if(a[i]%temp==0) 
+                    { 
+                        flag=1;
+                        break; 
+                    } 
+                    temp++; 
+                }
+                if(flag==0) 
+                    System.out.print(a[i]+" ");
+            }
+        }
 }
